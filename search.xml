@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[md组建展示]]></title>
-    <url>%2F2018%2F12%2F25%2Fmypage%2Fbasis%2F</url>
-    <content type="text"><![CDATA[此文章是markdown语言的基础使用教程 一级标题二级标题六级标题代码快1int i = 1;// 有序集合 一级第一 二级第一 二级第二 一级第二 无序集合 一级第一 二级第二 一级第二 二级第一 加粗 斜体 删除线 引用文体 多行引用 第三行第四行 嵌套 超链接]]></content>
+    <title><![CDATA[规则决策引擎drool使用]]></title>
+    <url>%2F2020%2F05%2F15%2Fmypage%2Frules%2F</url>
+    <content type="text"><![CDATA[本篇记录了关于规则引擎drool的使用 使用场景客户决策变动大,决策对象过。能极大优化代码,直观,后期增加规则方便,drool支持动态刷新规则表,excel可以转化为drl,但是drl没有excel直观(drl比excel加载快). 官方文档地址 https://www.drools.org/ 使用示例依赖12345678910111213141516171819202122232425262728293031323334&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.drools&lt;/groupId&gt; &lt;artifactId&gt;drools-bom&lt;/artifactId&gt; &lt;type&gt;pom&lt;/type&gt; &lt;version&gt;7.30.0.Final&lt;/version&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt;&lt;/dependencies&gt;&lt;dependency&gt; &lt;groupId&gt;org.kie&lt;/groupId&gt; &lt;artifactId&gt;kie-api&lt;/artifactId&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.drools&lt;/groupId&gt; &lt;artifactId&gt;drools-compiler&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.kie.server&lt;/groupId&gt; &lt;artifactId&gt;kie-server-client&lt;/artifactId&gt; &lt;version&gt;7.30.0.Final&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.drools&lt;/groupId&gt; &lt;artifactId&gt;drools-decisiontables&lt;/artifactId&gt; &lt;version&gt;7.30.0.Final&lt;/version&gt;&lt;/dependency&gt;&lt;!--excel解析--&gt;&lt;dependency&gt; &lt;groupId&gt;com.thoughtworks.xstream&lt;/groupId&gt; &lt;artifactId&gt;xstream&lt;/artifactId&gt; &lt;version&gt;1.4.10&lt;/version&gt;&lt;/dependency&gt; 加载决策表12345678//自动加载资源文件下所有决策表@Beanpublic KieContainerSessionsPool kieContainerSessionsPool() &#123; KieServices kieServices = KieServices.Factory.get(); KieContainer kieContainer = kieServices.getKieClasspathContainer(); KieContainerSessionsPool pool = kieContainer.newKieSessionsPool(10); return pool;&#125; 决策表方法1234567891011@AutowiredKieContainerSessionsPool pool;//SummaryPaymentPlan是普通类public SummaryPaymentPlan getSummaryPaymentPlanPool (SummaryPaymentPlan form) &#123; KieSession kieSession = pool.newKieSession(); kieSession.insert(form); int count = kieSession.fireAllRules();// 开始执行规则,并获取执行了多少条规则 System.out.println(&quot;Fire &quot; + count + &quot; rule(s)!&quot;); kieSession.dispose();// 关闭session return form;&#125; excel决策表]]></content>
       <categories>
-        <category>语言</category>
+        <category>规则引擎</category>
       </categories>
       <tags>
-        <tag>基础</tag>
+        <tag>规则引擎，决策表</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[hexo博客搭建]]></title>
-    <url>%2F2018%2F12%2F25%2Fmypage%2Fhexo-tutorial%2F</url>
-    <content type="text"><![CDATA[此文章是利用github搭建hexo博客的教程 1.安装git 下载地址 https://git-scm.com/downloads cmd git version 查看git是否安装 没有安装，下载exe文件直接next 2.安装Node.Js 下载地址 https://nodejs.org/en/download/ cmd node -v 查看版本 如不存在，下载msi文件，打开安装，一路next，记得在Custom Setup选择add path自动配置环境 现在版本的Node一般都集成了npm可以cmd npm -v 一下看有没有，没有一定要装，npm是神器 3.安装hexo 选择一个文件夹，也可以新建 管理员运行命令行进入刚刚的文件夹，也可以右键git bash（一般安装git hub自带）输入：npm i -g hexo 安装hexo cmd hexo -v 检查版本 新建项目cmd hexo init 项目名 到新建项目根目录cmd npm i 安装包 管理员cmd进入项目跟目录执行 hexo server 浏览器打开 &gt; http://localhost:4000 4.发布到github 新建仓库仓库名就是博客访问路径 打开项目，修改_config.yml 1234deploy: type: git repo: https://github.com/YourgithubName/YourgithubName.github.io.git branch: master 管理员cmd进入项目跟目录先安装 npm install hexo-deployer-git –save 再执行 hexo generate 最后执行 hexo deploy 在浏览器中输入 &gt; http://yourgithubname.github.io 就可以看到个人博客]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[公共资源]]></title>
-    <url>%2F2018%2F12%2F25%2Fmypage%2Fpublic-resource%2F</url>
-    <content type="text"><![CDATA[环境，下载地址等等 node下载地址 下载地址 https://nodejs.org/en/download/ git下载地址 下载地址 https://git-scm.com/downloads npm镜像站点全局安装站点：npm install -g -nrm使用镜像：nrm use 站点名查看所有站点：nrm ls添加镜像地址：nrm add URL &#39;registry_name&#39;删除镜像地址：nrm del &#39;registry_name&#39;测试镜像地址速度：nrm test [&#39;registry_name&#39;]]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Vue.js基础]]></title>
-    <url>%2F2018%2F12%2F25%2Fmypage%2Fvue-base%2F</url>
+    <url>%2F2019%2F12%2F31%2Fmypage%2Fvue-base%2F</url>
     <content type="text"><![CDATA[vue基础笔记 环境安装node.js，具体看公共资源安装webpack(全局安装只安装一次)：npm install webpack -g安装vue脚手架(全局安装只安装一次)：npm install vue -cli -g 新建项目 选择一个文件cmd vue init webpack 项目名 创建项目 进入项目文件cmd npm install 安装依赖 cmd npm run dev 启动项目]]></content>
       <tags>
         <tag>基础</tag>
@@ -33,14 +23,35 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[多线程的任务]]></title>
-    <url>%2F2018%2F12%2F25%2Fthreadtask%2F</url>
-    <content type="text"><![CDATA[本篇记录了关于多线程任务所使用的方法 实现Runnable接口此方法是经常使用的基础方法12 实现Callable接口]]></content>
+    <title><![CDATA[公共资源]]></title>
+    <url>%2F2019%2F12%2F31%2Fmypage%2Fpublic-resource%2F</url>
+    <content type="text"><![CDATA[环境，下载地址等等 node下载地址 下载地址 https://nodejs.org/en/download/ git下载地址 下载地址 https://git-scm.com/downloads npm镜像站点全局安装站点：npm install -g -nrm使用镜像：nrm use 站点名查看所有站点：nrm ls添加镜像地址：nrm add URL &#39;registry_name&#39;删除镜像地址：nrm del &#39;registry_name&#39;测试镜像地址速度：nrm test [&#39;registry_name&#39;]]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo博客搭建]]></title>
+    <url>%2F2019%2F12%2F31%2Fmypage%2Fhexo-tutorial%2F</url>
+    <content type="text"><![CDATA[此文章是利用github搭建hexo博客的教程 1.安装git 下载地址 https://git-scm.com/downloads cmd git version 查看git是否安装 没有安装，下载exe文件直接next 2.安装Node.Js 下载地址 https://nodejs.org/en/download/ cmd node -v 查看版本 如不存在，下载msi文件，打开安装，一路next，记得在Custom Setup选择add path自动配置环境 现在版本的Node一般都集成了npm可以cmd npm -v 一下看有没有，没有一定要装，npm是神器 3.安装hexo 选择一个文件夹，也可以新建 管理员运行命令行进入刚刚的文件夹，也可以右键git bash（一般安装git hub自带）输入：npm i -g hexo 安装hexo cmd hexo -v 检查版本 新建项目cmd hexo init 项目名 到新建项目根目录cmd npm i 安装包 管理员cmd进入项目跟目录执行 hexo server 浏览器打开 &gt; http://localhost:4000 4.发布到github 新建仓库仓库名就是博客访问路径 打开项目，修改_config.yml 1234deploy: type: git repo: https://github.com/YourgithubName/YourgithubName.github.io.git branch: master 管理员cmd进入项目跟目录先安装 npm install hexo-deployer-git –save 再执行 hexo generate 最后执行 hexo deploy 在浏览器中输入 &gt; http://yourgithubname.github.io 就可以看到个人博客]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[md组建展示]]></title>
+    <url>%2F2019%2F12%2F31%2Fmypage%2Fbasis%2F</url>
+    <content type="text"><![CDATA[此文章是markdown语言的基础使用教程 一级标题二级标题六级标题代码快1int i = 1;// 有序集合 一级第一 二级第一 二级第二 一级第二 无序集合 一级第一 二级第二 一级第二 二级第一 加粗 斜体 删除线 引用文体 多行引用 第三行第四行 嵌套 超链接]]></content>
       <categories>
-        <category>多线程</category>
+        <category>语言</category>
       </categories>
       <tags>
-        <tag>多线程</tag>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[多线程的任务常用线程池]]></title>
+    <url>%2F2018%2F12%2F25%2Fmypage%2Fthreadtask%2F</url>
+    <content type="text"><![CDATA[本篇记录了关于多线程任务使用过的线程池 ForkJoinPool使用ForkJoinPool的好处在于能遍历把任务拆分为各个小单元任务，进而缓解服务器压力 ForkJoinPool示例代码12345678910111213141516171819202122232425262728293031323334353637383940//实现类class ComputeTask extends RecursiveTask&lt;Object&gt;&#123; private List&lt;List&lt;String&gt;&gt; list; private int start; private int end; public ComputeTask(List&lt;List&lt;String&gt;&gt; list, int start, int end) &#123; this.list = list; this.start = start; this.end = end; &#125; @Override protected Object compute() &#123; if(end - start &lt; 10) &#123; //业务代码 return Boolean.TRUE; &#125;else &#123; //循环调用 int middle = (start + end) / 2; ComputeTask leftTask = new ComputeTask(list, start, middle); ComputeTask rightTask = new ComputeTask(list, middle+1, end); leftTask.fork(); rightTask.fork(); leftTask.join(); rightTask.join(); return null; &#125; &#125; &#125;class runClass &#123; public static void main( String[] args ) &#123; ComputeTask task = new ComputeTask(list, 0, list.size()-1); ForkJoinPool forkJoinPool = new ForkJoinPool(); ForkJoinTask&lt;Object&gt; result = forkJoinPool.submit(task); result.get(); &#125; &#125;]]></content>
+      <categories>
+        <category>线程池</category>
+      </categories>
+      <tags>
+        <tag>线程池</tag>
       </tags>
   </entry>
 </search>
