@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[常用stream函数]]></title>
-    <url>%2F2020%2F05%2F20%2Fmypage%2Fstreams%2F</url>
-    <content type="text"><![CDATA[本篇记录了常用的stream函数 聚合求和1234567891011121314151617181920212223public class demo &#123; public void test() &#123; List&lt;Map&lt;String, Object&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); Map&lt;String, Object&gt; item1 = new HashMap&lt;String, Object&gt;(); item1.put("key", "wo"); item1.put("price", 1); items.add(item1); Map&lt;String, Object&gt; item2 = new HashMap&lt;String, Object&gt;(); item2.put("key", "yuq"); item2.put("price", 2); items.add(item2); Map&lt;String, Object&gt; item3 = new HashMap&lt;String, Object&gt;(); item3.put("key", "wo"); item3.put("price", 100); items.add(item3); Map&lt;Object, Double&gt; result = items.parallelStream().collect(Collectors.groupingBy(mapper -&gt; &#123; return mapper.get("key"); &#125;, Collectors.summingDouble(mapper -&gt; &#123; return ((Integer) mapper.get("price")).doubleValue(); &#125;))); System.out.println(result); &#125;&#125; map1234567public class demo &#123; public void test() &#123; List&lt;Map&lt;String, Object&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 System.out.println(items.stream().map(mapper -&gt;mapper.get("key")).collect(Collectors.toList())); &#125;&#125; reduce123456789public class demo &#123; public void test() &#123; List&lt;Map&lt;String, String&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 System.out.println(items.stream().map(mapper -&gt; &#123; return mapper.get("key"); &#125;).reduce((accumulator, row) -&gt; accumulator + "," + row).orElse("错误")); &#125;&#125; 排序1234567891011public class demo &#123; public void test() &#123; List&lt;Map&lt;String, String&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 items.stream().sorted(Comparator.comparing(demo::comparingByPX)).collect(Collectors.toList()); &#125; public static Integer comparingByPX(Map&lt;String, Object&gt; map) &#123; return Integer.parseInt(map.get("key").toString()); &#125;&#125; 过滤1234567public class demo &#123; public void test() &#123; List&lt;Map&lt;String, String&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 items.stream().filter(mapper -&gt; "目标值".equals(mapper.get("key"))).collect(Collectors.toList()); &#125;&#125;]]></content>
-      <categories>
-        <category>stream</category>
-      </categories>
-      <tags>
-        <tag>基础，java8，stream</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[activiti工作流方法记录]]></title>
     <url>%2F2020%2F05%2F20%2Fmypage%2Factiviti%2F</url>
     <content type="text"><![CDATA[本篇记录了常用的activiti方法]]></content>
@@ -20,6 +9,17 @@
       </categories>
       <tags>
         <tag>activiti，工作流</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[常用stream函数]]></title>
+    <url>%2F2020%2F05%2F20%2Fmypage%2Fstreams%2F</url>
+    <content type="text"><![CDATA[本篇记录了常用的stream函数 聚合求和1234567891011121314151617181920212223public class demo &#123; public void test() &#123; List&lt;Map&lt;String, Object&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); Map&lt;String, Object&gt; item1 = new HashMap&lt;String, Object&gt;(); item1.put("key", "wo"); item1.put("price", 1); items.add(item1); Map&lt;String, Object&gt; item2 = new HashMap&lt;String, Object&gt;(); item2.put("key", "yuq"); item2.put("price", 2); items.add(item2); Map&lt;String, Object&gt; item3 = new HashMap&lt;String, Object&gt;(); item3.put("key", "wo"); item3.put("price", 100); items.add(item3); Map&lt;Object, Double&gt; result = items.parallelStream().collect(Collectors.groupingBy(mapper -&gt; &#123; return mapper.get("key"); &#125;, Collectors.summingDouble(mapper -&gt; &#123; return ((Integer) mapper.get("price")).doubleValue(); &#125;))); System.out.println(result); &#125;&#125; map1234567public class demo &#123; public void test() &#123; List&lt;Map&lt;String, Object&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 System.out.println(items.stream().map(mapper -&gt;mapper.get("key")).collect(Collectors.toList())); &#125;&#125; reduce123456789public class demo &#123; public void test() &#123; List&lt;Map&lt;String, String&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 System.out.println(items.stream().map(mapper -&gt; &#123; return mapper.get("key"); &#125;).reduce((accumulator, row) -&gt; accumulator + "," + row).orElse("错误")); &#125;&#125; 排序1234567891011public class demo &#123; public void test() &#123; List&lt;Map&lt;String, String&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 items.stream().sorted(Comparator.comparing(demo::comparingByPX)).collect(Collectors.toList()); &#125; public static Integer comparingByPX(Map&lt;String, Object&gt; map) &#123; return Integer.parseInt(map.get("key").toString()); &#125;&#125; 过滤1234567public class demo &#123; public void test() &#123; List&lt;Map&lt;String, String&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 items.stream().filter(mapper -&gt; "目标值".equals(mapper.get("key"))).collect(Collectors.toList()); &#125;&#125;]]></content>
+      <categories>
+        <category>stream</category>
+      </categories>
+      <tags>
+        <tag>基础，java8，stream</tag>
       </tags>
   </entry>
   <entry>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-20T07:44:34.294Z</updated>
+  <updated>2020-05-20T08:04:27.460Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>activiti工作流方法记录</title>
+    <link href="http://yoursite.com/2020/05/20/mypage/activiti/"/>
+    <id>http://yoursite.com/2020/05/20/mypage/activiti/</id>
+    <published>2020-05-20T08:04:07.000Z</published>
+    <updated>2020-05-20T08:04:27.460Z</updated>
+    
+    <content type="html"><![CDATA[<p>本篇记录了常用的activiti方法<br><a id="more"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇记录了常用的activiti方法&lt;br&gt;
+    
+    </summary>
+    
+      <category term="activiti" scheme="http://yoursite.com/categories/activiti/"/>
+    
+    
+      <category term="activiti，工作流" scheme="http://yoursite.com/tags/activiti%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
+    
+  </entry>
   
   <entry>
     <title>常用stream函数</title>
@@ -35,28 +57,6 @@
     
     
       <category term="基础，java8，stream" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%EF%BC%8Cjava8%EF%BC%8Cstream/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>activiti工作流方法记录</title>
-    <link href="http://yoursite.com/2020/05/20/mypage/activiti/"/>
-    <id>http://yoursite.com/2020/05/20/mypage/activiti/</id>
-    <published>2020-05-20T07:01:07.000Z</published>
-    <updated>2020-05-20T07:56:01.016Z</updated>
-    
-    <content type="html"><![CDATA[<p>本篇记录了常用的activiti方法<br><a id="more"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本篇记录了常用的activiti方法&lt;br&gt;
-    
-    </summary>
-    
-      <category term="activiti" scheme="http://yoursite.com/categories/activiti/"/>
-    
-    
-      <category term="activiti，工作流" scheme="http://yoursite.com/tags/activiti%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
     
   </entry>
   
