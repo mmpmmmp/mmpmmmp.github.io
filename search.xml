@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[常用stream函数]]></title>
+    <url>%2F2020%2F05%2F20%2Fmypage%2Fstreams%2F</url>
+    <content type="text"><![CDATA[本篇记录了常用的stream函数 聚合求和1234567891011121314151617181920212223public class demo &#123; public void test() &#123; List&lt;Map&lt;String, Object&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); Map&lt;String, Object&gt; item1 = new HashMap&lt;String, Object&gt;(); item1.put("key", "wo"); item1.put("price", 1); items.add(item1); Map&lt;String, Object&gt; item2 = new HashMap&lt;String, Object&gt;(); item2.put("key", "yuq"); item2.put("price", 2); items.add(item2); Map&lt;String, Object&gt; item3 = new HashMap&lt;String, Object&gt;(); item3.put("key", "wo"); item3.put("price", 100); items.add(item3); Map&lt;Object, Double&gt; result = items.parallelStream().collect(Collectors.groupingBy(mapper -&gt; &#123; return mapper.get("key"); &#125;, Collectors.summingDouble(mapper -&gt; &#123; return ((Integer) mapper.get("price")).doubleValue(); &#125;))); System.out.println(result); &#125;&#125; map1234567public class demo &#123; public void test() &#123; List&lt;Map&lt;String, Object&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 System.out.println(items.stream().map(mapper -&gt;mapper.get("key")).collect(Collectors.toList())); &#125;&#125; reduce123456789public class demo &#123; public void test() &#123; List&lt;Map&lt;String, String&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 System.out.println(items.stream().map(mapper -&gt; &#123; return mapper.get("key"); &#125;).reduce((accumulator, row) -&gt; accumulator + "," + row).orElse("错误")); &#125;&#125; 排序1234567891011public class demo &#123; public void test() &#123; List&lt;Map&lt;String, String&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 items.stream().sorted(Comparator.comparing(demo::comparingByPX)).collect(Collectors.toList()); &#125; public static Integer comparingByPX(Map&lt;String, Object&gt; map) &#123; return Integer.parseInt(map.get("key").toString()); &#125;&#125; 过滤1234567public class demo &#123; public void test() &#123; List&lt;Map&lt;String, String&gt;&gt; items = new ArrayList&lt;Map&lt;String, Object&gt;&gt;(); //省略值 items.stream().filter(mapper -&gt; "目标值".equals(mapper.get("key"))).collect(Collectors.toList()); &#125;&#125;]]></content>
+      <categories>
+        <category>stream</category>
+      </categories>
+      <tags>
+        <tag>基础，java8，stream</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[activiti工作流方法记录]]></title>
+    <url>%2F2020%2F05%2F20%2Fmypage%2Factiviti%2F</url>
+    <content type="text"><![CDATA[本篇记录了常用的activiti方法]]></content>
+      <categories>
+        <category>activiti</category>
+      </categories>
+      <tags>
+        <tag>activiti，工作流</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[规则决策引擎drool使用]]></title>
     <url>%2F2020%2F05%2F15%2Fmypage%2Frules%2F</url>
     <content type="text"><![CDATA[本篇记录了关于规则引擎drool的使用 使用场景客户决策变动大,决策对象过。能极大优化代码,直观,后期增加规则方便,drool支持动态刷新规则表,excel可以转化为drl,但是drl没有excel直观(drl比excel加载快). 官方文档地址 https://www.drools.org/ 使用示例依赖12345678910111213141516171819202122232425262728293031323334&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.drools&lt;/groupId&gt; &lt;artifactId&gt;drools-bom&lt;/artifactId&gt; &lt;type&gt;pom&lt;/type&gt; &lt;version&gt;7.30.0.Final&lt;/version&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt;&lt;/dependencies&gt;&lt;dependency&gt; &lt;groupId&gt;org.kie&lt;/groupId&gt; &lt;artifactId&gt;kie-api&lt;/artifactId&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.drools&lt;/groupId&gt; &lt;artifactId&gt;drools-compiler&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.kie.server&lt;/groupId&gt; &lt;artifactId&gt;kie-server-client&lt;/artifactId&gt; &lt;version&gt;7.30.0.Final&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.drools&lt;/groupId&gt; &lt;artifactId&gt;drools-decisiontables&lt;/artifactId&gt; &lt;version&gt;7.30.0.Final&lt;/version&gt;&lt;/dependency&gt;&lt;!--excel解析--&gt;&lt;dependency&gt; &lt;groupId&gt;com.thoughtworks.xstream&lt;/groupId&gt; &lt;artifactId&gt;xstream&lt;/artifactId&gt; &lt;version&gt;1.4.10&lt;/version&gt;&lt;/dependency&gt; 加载决策表12345678//自动加载资源文件下所有决策表@Beanpublic KieContainerSessionsPool kieContainerSessionsPool() &#123; KieServices kieServices = KieServices.Factory.get(); KieContainer kieContainer = kieServices.getKieClasspathContainer(); KieContainerSessionsPool pool = kieContainer.newKieSessionsPool(10); return pool;&#125; 决策表方法1234567891011@AutowiredKieContainerSessionsPool pool;//SummaryPaymentPlan是普通类public SummaryPaymentPlan getSummaryPaymentPlanPool (SummaryPaymentPlan form) &#123; KieSession kieSession = pool.newKieSession(); kieSession.insert(form); int count = kieSession.fireAllRules();// 开始执行规则,并获取执行了多少条规则 System.out.println("Fire " + count + " rule(s)!"); kieSession.dispose();// 关闭session return form;&#125; excel决策表]]></content>
