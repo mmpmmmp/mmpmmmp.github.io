@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[activiti工作流方法记录]]></title>
     <url>%2F2020%2F05%2F20%2Fmypage%2Factiviti%2F</url>
-    <content type="text"><![CDATA[本篇记录了常用的activiti方法]]></content>
+    <content type="text"><![CDATA[本篇记录了常用的activiti方法 依赖配合spring boot jpa12345678910111213141516171819&lt;properties&gt; &lt;activiti.version&gt;6.0.0&lt;/activiti.version&gt;&lt;/properties&gt;&lt;dependency&gt; &lt;groupId&gt;org.activiti&lt;/groupId&gt; &lt;artifactId&gt;activiti-engine&lt;/artifactId&gt; &lt;version&gt;$&#123;activiti.version&#125;&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.activiti&lt;/groupId&gt; &lt;artifactId&gt;activiti-spring-boot-starter-basic&lt;/artifactId&gt; &lt;version&gt;$&#123;activiti.version&#125;&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.activiti&lt;/groupId&gt; &lt;artifactId&gt;activiti-spring-boot-starter-jpa&lt;/artifactId&gt; &lt;version&gt;$&#123;activiti.version&#125;&lt;/version&gt;&lt;/dependency&gt; 常用接口可以使用spring boot自动注入 整体流程定义相关接口RepositoryService repositoryService 启动流程实例相关接口RuntimeService runtimeService 任务节点相关接口TaskService taskService 表单数据相关接口FormService formService 历史流程相关接口HistoryService historyService]]></content>
       <categories>
         <category>activiti</category>
       </categories>
